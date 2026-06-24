@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatting App</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            color: white;
+            font-family: sans-serif;
+            background-color: #131313;
+        }
+
+        .login_button{
+            transition: 0.7s;
+            border: 1px solid gray;
+            border-radius: 360px;
+            width: 200px;
+            height: 50px;
+            background-color: rgb(255, 230, 0);
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .login_button:hover{
+            background-color: rgb(255, 246, 126);
+        }
+
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .chat_box {
+            border: 1px solid gray;
+            border-radius: 20px;
+            height: 600px;
+            width: 900px;
+            background-color: #151515;
+
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* MESSAGE AREA */
+        .messages_area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* INDIVIDUAL MESSAGE */
+        .message {
+            display: flex;
+            gap: 8px;
+            padding: 10px 14px;
+            background-color: #1f1f1f;
+            border-radius: 12px;
+            width: fit-content;
+            max-width: 70%;
+        }
+
+        .user {
+            font-weight: bold;
+            color: rgb(255, 174, 0);
+        }
+
+        .text {
+            color: #e6e6e6;
+        }
+
+        /* INPUT AREA */
+        .send_messages {
+            display: flex;
+            padding: 12px;
+            border-top: 1px solid #333;
+            background-color: #141414;
+            gap: 10px;
+        }
+
+        .message_input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            background-color: #222;
+            color: white;
+        }
+
+        .send_messages button {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            background-color: rgb(255, 174, 0);
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .send_messages button:hover {
+            background-color: rgb(255, 214, 126);
+        }
+    </style>
+</head>
+<body>
+    <a href="/login_page/">
+        <button class="login_button">Login</button>
+    </a>
+    <div class="container">
+        <div class="chat_box">
+            <div class="messages_area">
+                {% for message in messages %}
+                    <div class="message">
+                        <span class="user">{{ message.user }}</span>
+                        <span class="text">{{ message.msg }}</span>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <form action="/send_msg/" class="send_messages" method="post">
+                <input type="text" placeholder="Enter your message here." class="message_input" name="message">
+                <button type="submit">Enter</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
