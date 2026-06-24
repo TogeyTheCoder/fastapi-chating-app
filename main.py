@@ -69,6 +69,3 @@ async def send_msg(request: Request, message: str = Form(...)):
     )
 
     return RedirectResponse("/", status_code=303)
-
-if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", reload=True)
