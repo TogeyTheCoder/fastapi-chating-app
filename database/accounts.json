@@ -1,14 +1,3 @@
 {
-    "accounts": [
-        {
-            "username": "yeeter",
-            "password": "hi123",
-            "user_id": "f13679ac-47b4-4038-8eb7-c195a6b9bc0a"
-        },
-        {
-            "username": "Bob123",
-            "password": "Bobby",
-            "user_id": "46151538-7822-44dc-a23b-5bc4b7313d25"
-        }
-    ]
+    "accounts":[]
 }
